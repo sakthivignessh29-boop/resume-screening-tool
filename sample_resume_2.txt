@@ -1,0 +1,43 @@
+PRIYA PATEL
+priya.patel@email.com | +1-555-0202 | LinkedIn: linkedin.com/in/priyapatel
+
+CAREER OBJECTIVE
+Passionate junior software developer with 2 years of experience seeking a challenging role in software engineering. Skilled in Python, JavaScript, and modern web frameworks.
+
+EDUCATION
+Master of Science in Software Engineering
+Georgia Institute of Technology — 2022
+GPA: 3.9/4.0
+
+Bachelor of Engineering in Information Technology
+Mumbai University — 2020
+
+TECHNICAL SKILLS
+Languages: Python, JavaScript, HTML, CSS
+Frameworks: React.js, Flask, Express.js
+Databases: MySQL, MongoDB
+Tools: Git, Docker, VS Code
+Cloud: AWS (basic), Heroku
+
+WORK EXPERIENCE
+
+Software Developer — WebAgency Pro (2022 – 2024 | 2 years)
+- Developed and maintained React.js components for 3 client web applications
+- Built REST APIs using Flask and integrated with MySQL databases
+- Implemented responsive designs and improved page load speed by 30%
+- Participated in Agile sprint planning and daily standups
+
+Intern Software Developer — TechStart Solutions (2021 – 2022 | 1 year)
+- Assisted in developing Python scripts for data processing automation
+- Created CRUD applications using Django and SQLite
+- Fixed bugs and wrote unit tests using pytest
+
+ACADEMIC PROJECTS
+E-Commerce Platform (React.js, Node.js, MongoDB)
+- Built a full-stack e-commerce app with user authentication and payment integration
+
+Student Grade Management System (Python, Flask, MySQL)
+- Developed a web-based grade management system for 1000+ students
+
+SOFT SKILLS
+Quick Learner, Team Player, Good Communication, Attention to Detail

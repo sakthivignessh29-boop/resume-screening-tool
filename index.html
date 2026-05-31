@@ -1,0 +1,312 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI Resume Screener | Intelligent Offline Processing</title>
+    <link rel="stylesheet" href="css/styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+
+    <div class="app-wrapper">
+        <!-- ── Sidebar Nav ─────────────────────────────────────────────────── -->
+        <aside class="sidebar">
+            <div class="sidebar-logo">
+                <div class="logo-mark">
+                    <div class="logo-icon">
+                        <i class="fas fa-brain"></i>
+                    </div>
+                    <div class="logo-text">
+                        <span class="logo-title">EXSPENSO AI</span>
+                        <span class="logo-sub">Resume Screening Tool</span>
+                    </div>
+                </div>
+            </div>
+
+            <nav class="sidebar-nav">
+                <div class="nav-section-label">Main</div>
+                <a href="#dashboard" class="nav-item active" data-view="dashboard">
+                    <i class="fas fa-th-large nav-icon"></i>
+                    <span>Dashboard</span>
+                </a>
+                <a href="#upload" class="nav-item" data-view="upload">
+                    <i class="fas fa-file-upload nav-icon"></i>
+                    <span>Upload Resumes</span>
+                    <span class="nav-badge" id="resume-count-badge" style="display:none">0</span>
+                </a>
+                <a href="#jd" class="nav-item" data-view="jd">
+                    <i class="fas fa-briefcase nav-icon"></i>
+                    <span>Job Profiles</span>
+                </a>
+                <a href="#results" class="nav-item" data-view="results">
+                    <i class="fas fa-list-ol nav-icon"></i>
+                    <span>Results</span>
+                </a>
+
+                <div class="nav-section-label">Management</div>
+                <a href="#export" class="nav-item" id="nav-export-btn">
+                    <i class="fas fa-file-export nav-icon"></i>
+                    <span>Export Data</span>
+                </a>
+            </nav>
+
+            <div class="sidebar-footer">
+                <div class="backend-status">
+                    <div class="status-dot" id="status-dot"></div>
+                    <span id="status-text">Connecting...</span>
+                </div>
+            </div>
+        </aside>
+
+        <!-- ── Main Content ────────────────────────────────────────────────── -->
+        <main class="main-content">
+            <header class="page-header">
+                <div class="page-title-block">
+                    <h1 id="view-title">Dashboard</h1>
+                    <p id="view-subtitle">Welcome back. Start by uploading resumes or selecting a profile.</p>
+                </div>
+                <div class="page-actions" id="header-actions">
+                    <!-- Dynamic actions based on view -->
+                </div>
+            </header>
+
+            <div class="content-area">
+                
+                <!-- ── Dashboard View ──────────────────────────────────────── -->
+                <section id="view-dashboard" class="view active">
+                    <div class="grid-3">
+                        <div class="stat-card">
+                            <div class="stat-icon violet">
+                                <i class="fas fa-file-alt"></i>
+                            </div>
+                            <div class="stat-info">
+                                <div class="stat-value" id="stat-resumes">0</div>
+                                <div class="stat-label">Resumes Uploaded</div>
+                            </div>
+                        </div>
+                        <div class="stat-card">
+                            <div class="stat-icon cyan">
+                                <i class="fas fa-id-card"></i>
+                            </div>
+                            <div class="stat-info">
+                                <div class="stat-value" id="stat-profiles">0</div>
+                                <div class="stat-label">Active Profiles</div>
+                            </div>
+                        </div>
+                        <div class="stat-card">
+                            <div class="stat-icon green">
+                                <i class="fas fa-check-circle"></i>
+                            </div>
+                            <div class="stat-info">
+                                <div class="stat-value" id="stat-processed">0</div>
+                                <div class="stat-label">Processed Today</div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="divider"></div>
+
+                    <div class="card">
+                        <div class="card-title">
+                            <i class="fas fa-bolt title-icon"></i>
+                            Quick Actions
+                        </div>
+                        <div class="quick-actions">
+                            <div class="quick-card" onclick="app.switchView('upload')">
+                                <i class="fas fa-cloud-upload-alt quick-card-icon" style="color:var(--accent)"></i>
+                                <span class="quick-card-title">New Upload</span>
+                                <span class="quick-card-desc">Parse multiple PDFs/Docs</span>
+                            </div>
+                            <div class="quick-card" onclick="app.switchView('jd')">
+                                <i class="fas fa-plus-circle quick-card-icon" style="color:var(--accent-2)"></i>
+                                <span class="quick-card-title">Create JD</span>
+                                <span class="quick-card-desc">Define scoring keywords</span>
+                            </div>
+                            <div class="quick-card" id="quick-analyze-btn">
+                                <i class="fas fa-magic quick-card-icon" style="color:var(--accent-3)"></i>
+                                <span class="quick-card-title">Run Analysis</span>
+                                <span class="quick-card-desc">Screen current batch</span>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- ── Upload View ─────────────────────────────────────────── -->
+                <section id="view-upload" class="view">
+                    <div class="card">
+                        <div class="drop-zone" id="drop-zone">
+                            <i class="fas fa-file-pdf drop-zone-icon"></i>
+                            <h3>Drop files here or click to upload</h3>
+                            <p>Supports .PDF, .DOCX, and .TXT files (Max 10MB each)</p>
+                            <input type="file" id="file-input" multiple accept=".pdf,.docx,.doc,.txt">
+                        </div>
+                        
+                        <div class="file-list" id="file-list">
+                            <!-- Files appear here -->
+                        </div>
+                        
+                        <div class="page-actions" style="margin-top: 24px; justify-content: flex-end;">
+                            <button class="btn btn-secondary" id="clear-files-btn">Clear All</button>
+                            <button class="btn btn-primary" onclick="app.switchView('jd')">Next: Define Criteria <i class="fas fa-arrow-right"></i></button>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- ── Job Description View ────────────────────────────────── -->
+                <section id="view-jd" class="view">
+                    <div class="grid-2">
+                        <div class="card">
+                            <div class="card-title"><i class="fas fa-edit title-icon"></i> Job Details</div>
+                            <div class="form-group">
+                                <label class="form-label">Job Title</label>
+                                <input type="text" class="form-input" id="jd-title" placeholder="e.g. Senior Software Engineer">
+                            </div>
+                            <div class="form-group">
+                                <label class="form-label">Job Description</label>
+                                <textarea class="form-textarea" id="jd-text" placeholder="Paste the job description here to help the AI extract keywords, or define them manually..."></textarea>
+                            </div>
+                            <div class="form-group">
+                                <button class="btn btn-secondary btn-sm" id="btn-extract-kws">
+                                    <i class="fas fa-wand-sparkles"></i> Auto-Generate Keywords
+                                </button>
+                            </div>
+                        </div>
+
+                        <div class="card">
+                            <div class="card-title"><i class="fas fa-sliders-h title-icon"></i> Scoring Weights</div>
+                            <div class="weight-config">
+                                <div class="weight-config-row">
+                                    <span class="weight-config-label">Keyword Match</span>
+                                    <input type="range" class="weight-config-slider" id="w-keyword" min="0" max="100" value="60">
+                                    <span class="weight-config-val" id="val-w-keyword">60%</span>
+                                </div>
+                                <div class="weight-config-row">
+                                    <span class="weight-config-label">Experience</span>
+                                    <input type="range" class="weight-config-slider" id="w-exp" min="0" max="100" value="25">
+                                    <span class="weight-config-val" id="val-w-exp">25%</span>
+                                </div>
+                                <div class="weight-config-row">
+                                    <span class="weight-config-label">Education</span>
+                                    <input type="range" class="weight-config-slider" id="w-edu" min="0" max="100" value="15">
+                                    <span class="weight-config-val" id="val-w-edu">15%</span>
+                                </div>
+                            </div>
+                            
+                            <div class="divider"></div>
+                            
+                            <div class="card-title"><i class="fas fa-key title-icon"></i> Keywords & Skill Weights</div>
+                            <div class="keywords-container" id="keywords-list">
+                                <!-- Keywords dynamic rows -->
+                            </div>
+                            <button class="add-keyword-btn" style="margin-top: 12px;" id="add-kw-btn">
+                                <i class="fas fa-plus"></i> Add Manual Keyword
+                            </button>
+                        </div>
+                    </div>
+                    
+                    <div class="page-actions" style="margin-top: 24px; justify-content: flex-end;">
+                        <button class="btn btn-secondary" id="save-profile-btn">Save Job Profile</button>
+                        <button class="btn btn-primary btn-lg" id="run-analyze-btn">
+                            <i class="fas fa-search"></i> Run Screen Analysis
+                        </button>
+                    </div>
+
+                    <div class="divider"></div>
+
+                    <div class="card">
+                        <div class="card-title"><i class="fas fa-history title-icon"></i> Saved Profiles</div>
+                        <div class="profile-list" id="saved-profiles-list">
+                            <!-- Saved profiles -->
+                        </div>
+                    </div>
+                </section>
+
+                <!-- ── Results View ────────────────────────────────────────── -->
+                <section id="view-results" class="view">
+                    <div class="results-toolbar">
+                        <div class="search-box">
+                            <i class="fas fa-search search-icon"></i>
+                            <input type="text" id="result-search" placeholder="Filter by name, skill, or education...">
+                        </div>
+                        <div class="tabs">
+                            <button class="tab active" data-filter="all">All</button>
+                            <button class="tab" data-filter="top">Top Match (>80%)</button>
+                            <button class="tab" data-filter="recent">Recent</button>
+                        </div>
+                        <div class="page-actions">
+                            <button class="btn btn-secondary" id="export-excel-btn">
+                                <i class="fas fa-file-excel" style="color:#1D6F42"></i> Excel
+                            </button>
+                            <button class="btn btn-secondary" id="export-pdf-btn">
+                                <i class="fas fa-file-pdf" style="color:#E02424"></i> PDF
+                            </button>
+                        </div>
+                    </div>
+
+                    <div class="table-wrap">
+                        <table id="results-table">
+                            <thead>
+                                <tr>
+                                    <th data-sort="rank">Rank</th>
+                                    <th data-sort="candidate_name">Candidate</th>
+                                    <th data-sort="total_score">Total Match</th>
+                                    <th data-sort="years_experience">Experience</th>
+                                    <th data-sort="education_level">Education</th>
+                                    <th style="cursor: default;">Skills Found</th>
+                                    <th style="cursor: default;">Action</th>
+                                </tr>
+                            </thead>
+                            <tbody id="results-body">
+                                <!-- Table rows here -->
+                            </tbody>
+                        </table>
+                        <div id="results-empty" class="empty-state" style="display:none">
+                            <i class="fas fa-chart-line empty-icon"></i>
+                            <span class="empty-title">No analysis data yet</span>
+                            <span class="empty-desc">Upload resumes and run analysis to see results here.</span>
+                        </div>
+                    </div>
+                </section>
+
+            </div>
+        </main>
+    </div>
+
+    <!-- ── Explainer Drawer ────────────────────────────────────────────── -->
+    <div class="drawer-overlay" id="drawer-overlay"></div>
+    <div class="explainer-drawer" id="explainer-drawer">
+        <div class="drawer-header">
+            <div class="drawer-title">
+                <i class="fas fa-info-circle" style="color:var(--accent)"></i>
+                Candidate Profile Analysis
+            </div>
+            <button class="drawer-close" id="drawer-close"><i class="fas fa-times"></i></button>
+        </div>
+        <div class="drawer-body" id="drawer-content">
+            <!-- Dynamic profile breakdown -->
+        </div>
+    </div>
+
+    <!-- ── Loading Overlay ─────────────────────────────────────────────── -->
+    <div class="loading-overlay" id="loading-overlay">
+        <div class="loading-card">
+            <div class="spinner"></div>
+            <div class="loading-text">Processing Resumes</div>
+            <div class="loading-sub">Using AI to extract keywords and experience...</div>
+        </div>
+    </div>
+
+    <!-- ── Toast Container ─────────────────────────────────────────────── -->
+    <div class="toast-container" id="toast-container"></div>
+
+    <!-- ── Scripts ─────────────────────────────────────────────────────── -->
+    <script src="js/app.js"></script>
+    <script src="js/upload.js"></script>
+    <script src="js/jd.js"></script>
+    <script src="js/results.js"></script>
+    <script src="js/explainer.js"></script>
+    <script src="js/export.js"></script>
+
+</body>
+</html>

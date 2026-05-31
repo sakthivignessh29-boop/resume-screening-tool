@@ -1,0 +1,32 @@
+Senior Software Engineer — Full Stack
+
+We are looking for an experienced Senior Software Engineer to join our growing engineering team. You will be responsible for designing, building, and maintaining scalable web applications and APIs.
+
+Requirements:
+- 5+ years of experience in software development
+- Strong proficiency in Python and JavaScript
+- Experience with React.js for frontend development
+- Experience with Flask or Django for backend development
+- Strong knowledge of RESTful API design
+- Experience with AWS cloud services (EC2, S3, Lambda)
+- Familiarity with Docker and Kubernetes
+- Experience with PostgreSQL or MySQL databases
+- Experience with microservices architecture
+- Knowledge of CI/CD pipelines
+- Experience with Git version control
+
+Nice to have:
+- Experience with machine learning integration
+- Knowledge of Apache Kafka
+- AWS certification
+- Leadership or mentoring experience
+
+Education:
+- Bachelor's degree in Computer Science, Software Engineering, or related field
+- Master's degree preferred
+
+Soft Skills:
+- Strong communication skills
+- Team collaboration
+- Problem-solving mindset
+- Agile/Scrum experience

@@ -1,0 +1,39 @@
+MICHAEL CHEN
+michael.chen@email.com | +1-555-0303
+
+SUMMARY
+Full-stack developer with 5 years of experience building enterprise-grade web applications. Strong expertise in Python, React.js, AWS, and microservices architecture.
+
+EDUCATION
+Bachelor of Science in Computer Engineering
+Stanford University — 2019
+
+SKILLS
+Programming: Python, Java, JavaScript, Go
+Frontend: React.js, Vue.js, TypeScript
+Backend: Spring Boot, Flask, FastAPI
+Cloud: AWS, GCP, Azure
+DevOps: Docker, Kubernetes, Terraform, CI/CD
+Database: PostgreSQL, Redis, Elasticsearch
+
+EXPERIENCE
+
+Software Engineer — CloudNine Technologies (2022 – Present | 2 years)
+- Designed microservices architecture serving 20M+ API requests daily
+- Led migration from monolith to Kubernetes-based microservices
+- Built machine learning inference APIs using FastAPI and PyTorch
+- Implemented GraphQL APIs with Apollo Server
+
+Software Engineer — Enterprise Systems Corp (2019 – 2022 | 3 years)
+- Developed Java Spring Boot microservices for banking applications
+- Built real-time streaming data pipelines using Apache Kafka
+- Designed PostgreSQL schemas and optimized slow queries (10x improvement)
+- Implemented OAuth 2.0 and JWT-based authentication systems
+
+PROJECTS
+ML Model Deployment Platform (Python, FastAPI, Docker, Kubernetes)
+Open Source Contributor — React UI Component Library (2000+ stars on GitHub)
+
+CERTIFICATIONS
+AWS Certified Developer – Associate
+Google Cloud Professional Data Engineer

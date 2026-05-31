@@ -1,0 +1,46 @@
+JOHN SMITH
+john.smith@email.com | +1-555-0101 | LinkedIn: linkedin.com/in/johnsmith | GitHub: github.com/johnsmith
+
+PROFESSIONAL SUMMARY
+Senior Software Engineer with 7 years of experience in full-stack development, specializing in Python, React.js, and cloud infrastructure. Proven track record of delivering scalable microservices and leading cross-functional engineering teams.
+
+EDUCATION
+Bachelor of Science in Computer Science
+University of California, Berkeley — 2017
+GPA: 3.8/4.0
+
+TECHNICAL SKILLS
+Languages: Python, JavaScript, TypeScript, Java, SQL
+Frameworks: React.js, Flask, Django, Spring Boot, Node.js
+Cloud: AWS (EC2, S3, Lambda, RDS), Docker, Kubernetes
+Databases: PostgreSQL, MySQL, MongoDB, Redis
+Tools: Git, Jenkins, JIRA, Confluence
+
+WORK EXPERIENCE
+
+Senior Software Engineer — TechCorp Inc. (2021 – Present | 3 years)
+- Architected and deployed microservices on AWS using Docker and Kubernetes, reducing deployment time by 40%
+- Led a team of 5 engineers to build a real-time data pipeline using Apache Kafka and Python
+- Implemented RESTful APIs with Flask serving over 10 million requests/month
+- Mentored junior developers and conducted code reviews to maintain code quality
+
+Software Engineer — DataSolutions LLC (2019 – 2021 | 2 years)
+- Developed React.js frontend features with TypeScript, improving UX for 500K+ users
+- Built automated testing frameworks using pytest and Jest, achieving 90% code coverage
+- Collaborated with data science team to integrate machine learning models into production APIs
+
+Junior Software Engineer — StartupHub (2017 – 2019 | 2 years)
+- Built RESTful APIs using Django and PostgreSQL
+- Contributed to CI/CD pipeline setup using Jenkins and GitHub Actions
+- Developed responsive web interfaces using HTML, CSS, JavaScript
+
+PROJECTS
+Real-Time Analytics Dashboard (Python, React, Redis, WebSocket)
+- Built a live analytics dashboard handling 50K concurrent connections
+
+CERTIFICATIONS
+- AWS Certified Solutions Architect – Associate (2022)
+- Certified Kubernetes Administrator (2023)
+
+SOFT SKILLS
+Leadership, Team Collaboration, Agile/Scrum, Communication, Problem Solving
