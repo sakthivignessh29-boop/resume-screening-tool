@@ -1,60 +1,180 @@
-# AI Resume Screening Tool
+# 📄 AI Resume Screening Tool
 
-A comprehensive, fully offline, and transparent AI-powered Resume Screening Tool. This tool allows recruiters to upload multiple resumes, compare them against customizable job descriptions, and get detailed, explainable rankings.
+## 🚀 Overview
 
-## 🚀 Features
+The **AI Resume Screening Tool** is a smart recruitment system that automates resume analysis and candidate ranking using rule-based AI logic. It helps recruiters quickly filter candidates based on job descriptions, saving time and improving hiring accuracy.
 
-- **Multi-Format Support**: Parse text from PDF, DOCX, and TXT files.
-- **Customizable Scoring**: Adjust keyword weights and balance between Skills, Experience, and Education.
-- **Explainable AI**: No black-box decisions. View exactly why a candidate matched (or didn't) with context snippets from their resume.
-- **Pro Dashboard**: Clean, modern dark UI with glassmorphism aesthetics.
-- **Export Reports**: Generate professional Excel and PDF screening reports.
-- **Job Profiles**: Save and load criteria for different roles.
-
-## 📦 Deployment
-
-This project is pre-configured for easy deployment to **Railway** or **Render**.
-
-### Option 1: Railway (Recommended)
-1. Install [Railway CLI](https://docs.railway.app/guides/cli).
-2. Run `railway login`.
-3. Run `railway link` to connect to your project.
-4. Run `railway up` to deploy.
-5. **Persistence**: In the Railway dashboard, add a **Mount** to `/app/backend/data` to keep your SQLite database across deploys.
-
-### Option 2: Render
-1. Connect your GitHub repository to [Render](https://render.com).
-2. Create a new **Web Service**.
-3. Use the following settings:
-   - **Environment**: `Python`
-   - **Build Command**: `pip install -r backend/requirements.txt`
-   - **Start Command**: `gunicorn --chdir backend app:app`
-4. **Persistence**: Add a **Persistent Disk** mounted at `/backend/data`.
-
-### Option 3: Vercel
-1. Connect your repository to [Vercel](https://vercel.com).
-2. The included `vercel.json` will automatically configure the build.
-3. > [!CAUTION]
-   > SQLite data will **NOT persist** on Vercel. Every time the app goes idle, your saved job profiles will be reset. This is only recommended for demonstration purposes.
+---
 
 ## 🛠️ Tech Stack
 
-- **Frontend**: HTML5, Vanilla CSS (Custom Design System), JavaScript (Modular SPA).
-- **Backend**: Python, Flask, SQLite.
-- **Infrastructure**: Gunicorn (for production).
+### 🎨 Frontend
 
-## 💻 Local Setup & Installation
+* HTML5
+* Vanilla CSS (Custom Design System)
+* JavaScript (Modular SPA Architecture)
 
-### 1. Prerequisites
-- Python 3.8 or higher installed on your machine.
+### ⚙️ Backend
 
-### 2. Install Dependencies
-`pip install -r backend/requirements.txt`
+* Python
+* Flask
+* SQLite
 
-### 3. Run Locally
-Navigate to the `backend` folder and start the server:
-`python backend/app.py`
-The tool will be available at `http://localhost:5000`.
+### 📄 Parsing Libraries
+
+* pdfplumber (PDF extraction)
+* python-docx (Word document parsing)
+
+### 📦 Export Tools
+
+* openpyxl (Excel export)
+* reportlab (PDF report generation)
 
 ---
-Developed with ❤️ for recruiters who value transparency and data privacy.
+
+## 📦 Setup & Installation
+
+### 1. Prerequisites
+
+* Python **3.8 or higher**
+
+---
+
+### 2. Install Dependencies
+
+Run this in the project root:
+
+```bash id="k8xq21"
+pip install -r backend/requirements.txt
+```
+
+---
+
+### 3. Run Backend
+
+Navigate to backend folder:
+
+```bash id="p9d2ks"
+python backend/app.py
+```
+
+📍 Backend runs at:
+
+```
+http://localhost:5000
+```
+
+---
+
+### 4. Run Frontend
+
+Simply open:
+
+```
+frontend/index.html
+```
+
+in any modern browser (Chrome / Edge / Firefox)
+
+---
+
+## 🔍 How to Use
+
+### 📤 1. Upload Resumes
+
+Go to **Upload Resumes** tab and drag & drop candidate files.
+
+---
+
+### 🧠 2. Define Job Criteria
+
+* Paste job description in **Job Profiles**
+* Click **Auto-Generate Keywords** or add manually
+
+---
+
+### ⚖️ 3. Weighting System
+
+Adjust sliders to prioritize skills:
+
+* Experience (e.g., 50% for senior roles)
+* Skills
+* Education
+* Keywords
+
+---
+
+### 🚀 4. Run Analysis
+
+Click:
+
+```
+Run Screen Analysis
+```
+
+---
+
+### 📊 5. View Results
+
+* View ranked candidates
+* Click **Analyze** for detailed breakdown
+
+---
+
+### 📁 6. Export Results
+
+Export reports as:
+
+* 📊 Excel (openpyxl)
+* 📄 PDF (reportlab)
+
+---
+
+## 🌐 Prototype / Demo
+
+👉 **Live Prototype / Demo Link:**
+🔗 https://your-prototype-link-here.com
+
+*(Replace this with: localhost link, hosted app, or video demo)*
+
+---
+
+## 📁 Project Structure
+
+```id="z7q1pl"
+resume-screening-tool/
+│── frontend/
+│   ├── index.html
+│   ├── style.css
+│   └── app.js
+│
+│── backend/
+│   ├── app.py
+│   ├── requirements.txt
+│
+│── data/
+│── exports/
+│── README.md
+```
+
+---
+
+## 🔮 Future Improvements
+
+* 🤖 NLP-based semantic matching
+* ☁️ Cloud deployment (AWS / Render / Vercel)
+* 📊 Dashboard analytics
+* 🔐 User authentication system
+
+---
+
+## 👩‍💻 Author
+
+**Sakthi Vignessh T**
+
+---
+
+## ⭐ Note
+
+## This project is built as a **prototype for hackathons and academic evaluation**, demonstrating full-stack integration and intelligent resume screening workflow.
+
